@@ -10,6 +10,8 @@ DISABLE_ARTIFACT_PATH_REQUIREMENTS:= true
 
 PRODUCT_BROKEN_VERIFY_USES_LIBRARIES := true
 
+include vendor/lineage-priv/keys/keys.mk
+
 # ANGLE - Almost Native Graphics Layer Engine
 PRODUCT_PACKAGES += \
     ANGLE
