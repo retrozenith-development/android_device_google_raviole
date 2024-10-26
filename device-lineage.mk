@@ -6,6 +6,8 @@
 
 PRODUCT_USE_SCUDO := true
 
+DISABLE_ARTIFACT_PATH_REQUIREMENTS:= true
+
 # ANGLE - Almost Native Graphics Layer Engine
 PRODUCT_PACKAGES += \
     ANGLE
