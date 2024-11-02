@@ -1,23 +1,16 @@
 {
   "Nodes": [
     {
-      "Name": "MemFreq",
-      "Path": "/sys/devices/platform/17000010.devfreq_mif/devfreq/17000010.devfreq_mif/min_freq",
+      "Name": "GPUMinFreq",
+      "Path": "/sys/devices/platform/1c500000.mali/hint_min_freq",
       "Values": [
-        "3172000",
-        "1539000",
-        "1352000",
-        "1014000",
-        "421000"
-      ],
-      "ResetOnInit": true
-    },
-    {
-      "Name": "IntFreq",
-      "Path": "/sys/devices/platform/17000020.devfreq_int/devfreq/17000020.devfreq_int/min_freq",
-      "Values": [
-        "533000",
-        "100000"
+        "848000",
+        "762000",
+        "572000",
+        "471000",
+        "400000",
+        "302000",
+        "202000"
       ],
       "ResetOnInit": true
     },
@@ -26,13 +19,12 @@
       "Path": "/sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq",
       "Values": [
         "9999999",
-        "1098000",
-        "1401000",
-        "930000",
-        "1197000",
-        "1328000",
+        "1803000",
         "1598000",
-        "1803000"
+        "1401000",
+        "1328000",
+        "1197000",
+        "930000"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": true
@@ -49,12 +41,22 @@
       "ResetOnInit": true
     },
     {
+      "Name": "CPULittleClusterUpRateLimitUs",
+      "Path": "/sys/devices/system/cpu/cpu0/cpufreq/sched_pixel/up_rate_limit_us",
+      "Values": [
+        "500",
+        "0"
+      ],
+      "DefaultIndex": 0,
+      "ResetOnInit": true
+    },
+    {
       "Name": "CPULittleClusterDownRateLimitUs",
       "Path": "/sys/devices/system/cpu/cpu0/cpufreq/sched_pixel/down_rate_limit_us",
       "Values": [
         "5000",
         "2000",
-        "500"
+        "1000"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": true
@@ -66,14 +68,12 @@
         "9999999",
         "2253000",
         "2130000",
-        "1024000",
-        "1197000",
-        "1491000",
-        "910000",
-        "1328000",
-        "1663000",
+        "1999000",
         "1836000",
-        "1999000"
+        "1663000",
+        "1491000",
+        "1328000",
+        "910000"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": true
@@ -92,13 +92,23 @@
       "ResetOnInit": true
     },
     {
+      "Name": "CPUMidClusterUpRateLimitUs",
+      "Path": "/sys/devices/system/cpu/cpu4/cpufreq/sched_pixel/up_rate_limit_us",
+      "Values": [
+        "500",
+        "0"
+      ],
+      "DefaultIndex": 0,
+      "ResetOnInit": true
+    },
+    {
       "Name": "CPUMidClusterDownRateLimitUs",
       "Path": "/sys/devices/system/cpu/cpu4/cpufreq/sched_pixel/down_rate_limit_us",
       "Values": [
         "20000",
         "3000",
         "2000",
-        "500"
+        "1000"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": true
@@ -110,15 +120,13 @@
         "9999999",
         "2704000",
         "2507000",
+        "2401000",
         "2252000",
-        "984000",
-        "1426000",
-        "1826000",
-        "1277000",
-        "1582000",
-        "1745000",
         "2048000",
-        "2401000"
+        "1826000",
+        "1745000",
+        "1582000",
+        "1277000"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": true
@@ -138,29 +146,25 @@
       "ResetOnInit": true
     },
     {
+      "Name": "CPUBigClusterUpRateLimitUs",
+      "Path": "/sys/devices/system/cpu/cpu6/cpufreq/sched_pixel/up_rate_limit_us",
+      "Values": [
+        "500",
+        "0"
+      ],
+      "DefaultIndex": 0,
+      "ResetOnInit": true
+    },
+    {
       "Name": "CPUBigClusterDownRateLimitUs",
       "Path": "/sys/devices/system/cpu/cpu6/cpufreq/sched_pixel/down_rate_limit_us",
       "Values": [
         "20000",
         "3000",
         "2000",
-        "500"
+        "1000"
       ],
       "DefaultIndex": 0,
-      "ResetOnInit": true
-    },
-    {
-      "Name": "GPUMinFreq",
-      "Path": "/sys/devices/platform/1c500000.mali/hint_min_freq",
-      "Values": [
-        "848000",
-        "762000",
-        "572000",
-        "471000",
-        "400000",
-        "302000",
-        "202000"
-      ],
       "ResetOnInit": true
     },
     {
@@ -182,11 +186,22 @@
       "ResetOnInit": true
     },
     {
+      "Name": "AutoPreferIdle",
+      "Path": "/proc/vendor_sched/auto_prefer_idle",
+      "Values": [
+        "0",
+        "1"
+      ],
+      "ResetOnInit": true
+    },
+    {
       "Name": "CPUUtilThreshold",
       "Path": "/proc/vendor_sched/util_threshold",
       "Values": [
+        "2048 1280 1280",
         "1280",
-        "1100"
+        "1100",
+        "1100 1024 1100"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": true
@@ -196,7 +211,9 @@
       "Path": "/proc/vendor_sched/dvfs_headroom",
       "Values": [
         "1280",
-        "1100"
+        "1100",
+        "1280 1100 1055",
+        "1100 1055 1055"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": true
@@ -212,22 +229,115 @@
       "ResetOnInit": true
     },
     {
-      "Name": "MIFTargetLoad",
-      "Path": "/sys/class/devfreq/17000010.devfreq_mif/interactive/target_load",
+      "Name": "AutoMigrationMarginsEnable",
+      "Path": "/proc/vendor_sched/auto_migration_margins_enable",
       "Values": [
-        "20 10 80",
-        "80 10 80",
-        "20 10 90"
+        "0",
+        "1"
+      ],
+      "DefaultIndex": 0,
+      "ResetOnInit": true
+    },
+    {
+      "Name": "AutoDvfsHeadroomEnable",
+      "Path": "/proc/vendor_sched/auto_dvfs_headroom_enable",
+      "Values": [
+        "0",
+        "1"
+      ],
+      "DefaultIndex": 0,
+      "ResetOnInit": true
+    },
+    {
+      "Name": "TARampupMultiplier",
+      "Path": "/proc/vendor_sched/groups/ta/rampup_multiplier",
+      "Values": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "DefaultIndex": 2,
+      "ResetOnInit": true
+    },
+    {
+      "Name": "AdpfRampupMultiplier",
+      "Path": "/proc/vendor_sched/adpf_rampup_multiplier",
+      "Values": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "DefaultIndex": 2,
+      "ResetOnInit": true
+    },
+    {
+      "Name": "PerTaskMaxIowaitBoost",
+      "Path": "/proc/vendor_sched/per_task_iowait_boost_max_value",
+      "Values": [
+        "0",
+        "512"
+      ],
+      "DefaultIndex": 0,
+      "ResetOnInit": true
+    },
+    {
+      "Name": "CPUUClampMaxFilterEnable",
+      "Path": "/proc/vendor_sched/uclamp_max_filter_enable",
+      "Values": [
+        "1",
+        "0"
+      ],
+      "DefaultIndex": 0,
+      "ResetOnInit": true
+    },
+    {
+      "Name": "CPUSkipMask",
+      "Path": "/proc/vendor_sched/cpu_skip_mask",
+      "Values": [
+        "0x0",
+        "0x80"
       ],
       "ResetOnInit": true
     },
     {
-      "Name": "SchedLibMaskIn",
-      "Path": "/proc/vendor_sched/sched_lib_mask_in",
+      "Name": "SysGroupCfsSkipMask",
+      "Path": "/proc/vendor_sched/groups/sys/group_cfs_skip_mask",
       "Values": [
-        "0x100",
-        "0x0"
+        "0x0",
+        "0x80"
       ],
+      "ResetOnInit": true
+    },
+    {
+      "Name": "BGUClampMaxBoost",
+      "Path": "/proc/vendor_sched/groups/bg/uclamp_max",
+      "Values": [
+        "130",
+        "512"
+      ],
+      "DefaultIndex": 0,
+      "ResetOnInit": true
+    },
+    {
+      "Name": "Dex2oatUClampMaxBoost",
+      "Path": "/proc/vendor_sched/groups/dex2oat/uclamp_max",
+      "Values": [
+        "-2",
+        "615"
+      ],
+      "DefaultIndex": 0,
       "ResetOnInit": true
     },
     {
@@ -235,6 +345,7 @@
       "Path": "/proc/vendor_sched/groups/cam/uclamp_min",
       "Values": [
         "765",
+        "250",
         "0"
       ],
       "ResetOnInit": true
@@ -244,6 +355,7 @@
       "Path": "/proc/vendor_sched/groups/ta/uclamp_min",
       "Values": [
         "765",
+        "600",
         "1"
       ],
       "ResetOnInit": true
@@ -262,7 +374,7 @@
       "Path": "/proc/vendor_sched/groups/nnapi/uclamp_min",
       "Values": [
         "225",
-        "813"
+        "812"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": true
@@ -280,9 +392,10 @@
       "Name": "CDPreferIdle",
       "Path": "/proc/vendor_sched/groups/cam/prefer_idle",
       "Values": [
-        "0",
-        "1"
+        "1",
+        "0"
       ],
+      "DefaultIndex": 0,
       "ResetOnInit": true
     },
     {
@@ -338,8 +451,35 @@
       "Name": "TAPreferIdle",
       "Path": "/proc/vendor_sched/groups/ta/prefer_idle",
       "Values": [
-        "0",
-        "1"
+        "1",
+        "0"
+      ],
+      "ResetOnInit": true
+    },
+    {
+      "Name": "TAPreferredIdleMaskHigh",
+      "Path": "/proc/vendor_sched/groups/ta/preferred_idle_mask_high",
+      "Values": [
+        "0xff",
+        "0x7f"
+      ],
+      "ResetOnInit": true
+    },
+    {
+      "Name": "TAPreferredIdleMaskMid",
+      "Path": "/proc/vendor_sched/groups/ta/preferred_idle_mask_mid",
+      "Values": [
+        "0xff",
+        "0x7f"
+      ],
+      "ResetOnInit": true
+    },
+    {
+      "Name": "TAPreferredIdleMaskLow",
+      "Path": "/proc/vendor_sched/groups/ta/preferred_idle_mask_low",
+      "Values": [
+        "0xff",
+        "0x7f"
       ],
       "ResetOnInit": true
     },
@@ -350,7 +490,6 @@
         "1",
         "0"
       ],
-      "DefaultIndex": 0,
       "ResetOnInit": true
     },
     {
@@ -366,18 +505,10 @@
       "Name": "NPITaskPacking",
       "Path": "/proc/vendor_sched/npi_packing",
       "Values": [
-        "0",
-        "1"
+        "1",
+        "0"
       ],
       "ResetOnInit": true
-    },
-    {
-      "Name": "NewlyIdleBalancer",
-      "Path": "/proc/vendor_sched/idle_balancer",
-      "Values": [
-        "0",
-        "1"
-      ]
     },
     {
       "Name": "DisplayWakeup",
@@ -417,119 +548,51 @@
       "ResetOnInit": true
     },
     {
-      "Name": "INTCAMFreq",
-      "Path": "/sys/devices/platform/17000030.devfreq_intcam/devfreq/17000030.devfreq_intcam/min_freq",
+      "Name": "BigTjOffset",
+      "Path": "/sys/devices/platform/100a0000.BIG/offset_enabled",
       "Values": [
-        "664000",
-        "67000"
-      ],
-      "ResetOnInit": true
-    },
-    {
-      "Name": "TNRFreq",
-      "Path": "/sys/devices/platform/17000060.devfreq_tnr/devfreq/17000060.devfreq_tnr/min_freq",
-      "Values": [
-        "664000",
-        "67000"
-      ],
-      "ResetOnInit": true
-    },
-    {
-      "Name": "BigControlTempSet",
-      "Path": "/dev/thermal/tz-by-name/BIG/trip_point_2_temp",
-      "Values": [
-        "90000",
-        "80000"
+        "0",
+        "1"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": false
     },
     {
-      "Name": "MidControlTempSet",
-      "Path": "/dev/thermal/tz-by-name/MID/trip_point_2_temp",
+      "Name": "MidTjOffset",
+      "Path": "/sys/devices/platform/100a0000.MID/offset_enabled",
       "Values": [
-        "90000",
-        "80000"
+        "0",
+        "1"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": false
     },
     {
-      "Name": "LittleControlTempSet",
-      "Path": "/dev/thermal/tz-by-name/LITTLE/trip_point_2_temp",
+      "Name": "LittleTjOffset",
+      "Path": "/sys/devices/platform/100a0000.LITTLE/offset_enabled",
       "Values": [
-        "95000",
-        "80000"
+        "0",
+        "1"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": false
     },
     {
-      "Name": "G3dControlTempSet",
-      "Path": "/dev/thermal/tz-by-name/G3D/trip_point_2_temp",
+      "Name": "G3dTjOffset",
+      "Path": "/sys/devices/platform/100b0000.G3D/offset_enabled",
       "Values": [
-        "90000",
-        "80000"
+        "0",
+        "1"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": false
     },
     {
-      "Name": "TpuControlTempSet",
-      "Path": "/dev/thermal/tz-by-name/TPU/trip_point_2_temp",
+      "Name": "TpuTjOffset",
+      "Path": "/sys/devices/platform/100b0000.TPU/offset_enabled",
       "Values": [
-        "90000",
-        "80000"
-      ],
-      "DefaultIndex": 0,
-      "ResetOnInit": false
-    },
-    {
-      "Name": "BigSwitchOnTempSet",
-      "Path": "/dev/thermal/tz-by-name/BIG/trip_point_1_temp",
-      "Values": [
-        "70000",
-        "60000"
-      ],
-      "DefaultIndex": 0,
-      "ResetOnInit": false
-    },
-    {
-      "Name": "MidSwitchOnTempSet",
-      "Path": "/dev/thermal/tz-by-name/MID/trip_point_1_temp",
-      "Values": [
-        "70000",
-        "60000"
-      ],
-      "DefaultIndex": 0,
-      "ResetOnInit": false
-    },
-    {
-      "Name": "LittleSwitchOnTempSet",
-      "Path": "/dev/thermal/tz-by-name/LITTLE/trip_point_1_temp",
-      "Values": [
-        "70000",
-        "60000"
-      ],
-      "DefaultIndex": 0,
-      "ResetOnInit": false
-    },
-    {
-      "Name": "G3dSwitchOnTempSet",
-      "Path": "/dev/thermal/tz-by-name/G3D/trip_point_1_temp",
-      "Values": [
-        "70000",
-        "60000"
-      ],
-      "DefaultIndex": 0,
-      "ResetOnInit": false
-    },
-    {
-      "Name": "TpuSwitchOnTempSet",
-      "Path": "/dev/thermal/tz-by-name/TPU/trip_point_1_temp",
-      "Values": [
-        "70000",
-        "60000"
+        "0",
+        "1"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": false
@@ -593,12 +656,11 @@
         "default",
         "cam1"
       ],
-      "DefaultIndex": 0,
-      "ResetOnInit": false
+      "DefaultIndex": 0
     },
     {
       "Name": "PMU_LIT_LCPI_THRESHOLD",
-      "Path": "/sys/devices/system/cpu/cpu0/cpufreq/sched_pixel/lcpi_threshold",
+      "Path": "/sys/devices/system/cpu/cpufreq/policy0/sched_pixel/lcpi_threshold",
       "Values": [
         "2",
         "0"
@@ -607,7 +669,7 @@
     },
     {
       "Name": "PMU_LIT_SPC_THRESHOLD",
-      "Path": "/sys/devices/system/cpu/cpu0/cpufreq/sched_pixel/spc_threshold",
+      "Path": "/sys/devices/system/cpu/cpufreq/policy0/sched_pixel/spc_threshold",
       "Values": [
         "70",
         "0"
@@ -616,7 +678,7 @@
     },
     {
       "Name": "PMU_MID_LCPI_THRESHOLD",
-      "Path": "/sys/devices/system/cpu/cpu4/cpufreq/sched_pixel/lcpi_threshold",
+      "Path": "/sys/devices/system/cpu/cpufreq/policy4/sched_pixel/lcpi_threshold",
       "Values": [
         "6",
         "3"
@@ -625,7 +687,7 @@
     },
     {
       "Name": "PMU_MID_SPC_THRESHOLD",
-      "Path": "/sys/devices/system/cpu/cpu4/cpufreq/sched_pixel/spc_threshold",
+      "Path": "/sys/devices/system/cpu/cpufreq/policy4/sched_pixel/spc_threshold",
       "Values": [
         "65",
         "50"
@@ -634,7 +696,7 @@
     },
     {
       "Name": "PMU_BIG_LIMIT_FREQ",
-      "Path": "/sys/devices/system/cpu/cpu6/cpufreq/sched_pixel/limit_frequency",
+      "Path": "/sys/devices/system/cpu/cpufreq/policy6/sched_pixel/limit_frequency",
       "Values": [
         "2507000",
         "1826000"
@@ -643,7 +705,7 @@
     },
     {
       "Name": "PMU_BIG_LCPI_THRESHOLD",
-      "Path": "/sys/devices/system/cpu/cpu6/cpufreq/sched_pixel/lcpi_threshold",
+      "Path": "/sys/devices/system/cpu/cpufreq/policy6/sched_pixel/lcpi_threshold",
       "Values": [
         "5",
         "3"
@@ -652,7 +714,7 @@
     },
     {
       "Name": "PMU_BIG_SPC_THRESHOLD",
-      "Path": "/sys/devices/system/cpu/cpu6/cpufreq/sched_pixel/spc_threshold",
+      "Path": "/sys/devices/system/cpu/cpufreq/policy6/sched_pixel/spc_threshold",
       "Values": [
         "69",
         "50"
@@ -676,7 +738,7 @@
       "Path": "vendor.powerhal.dalvik.vm.dex2oat-cpu-set",
       "Values": [
         "0,1,2,3",
-        "0,1,2,3,4,5",
+        "0,1,2,3,4,5,6",
         "0,1,2,3,4,5,6,7"
       ],
       "Type": "Property"
@@ -692,8 +754,8 @@
       "ResetOnInit": true
     },
     {
-      "Name": "VIRTUAL-SKIN-CPU",
-      "Path": "vendor.thermal.VIRTUAL-SKIN-CPU.profile",
+      "Name": "VIRTUAL-SKIN-CPU-LIGHT-ODPM",
+      "Path": "vendor.thermal.VIRTUAL-SKIN-CPU-LIGHT-ODPM.profile",
       "Values": [
         "",
         "game"
@@ -701,6 +763,97 @@
       "DefaultIndex": 0,
       "ResetOnInit": true,
       "Type": "Property"
+    },
+    {
+      "Name": "VIRTUAL-SKIN-CPU-MID",
+      "Path": "vendor.thermal.VIRTUAL-SKIN-CPU-MID.profile",
+      "Values": [
+        "",
+        "game"
+      ],
+      "DefaultIndex": 0,
+      "ResetOnInit": true,
+      "Type": "Property"
+    },
+    {
+      "Name": "VIRTUAL-SKIN-CPU-HIGH",
+      "Path": "vendor.thermal.VIRTUAL-SKIN-CPU-HIGH.profile",
+      "Values": [
+        "",
+        "game"
+      ],
+      "DefaultIndex": 0,
+      "ResetOnInit": true,
+      "Type": "Property"
+    },
+    {
+      "Name": "MIFTargetLoad",
+      "Path": "/sys/class/devfreq/17000010.devfreq_mif/interactive/target_load",
+      "Values": [
+        "20 80",
+        "20 40"
+      ],
+      "ResetOnInit": true
+    },
+    {
+      "Name": "MemFreq",
+      "Path": "/sys/devices/platform/17000010.devfreq_mif/devfreq/17000010.devfreq_mif/min_freq",
+      "Values": [
+        "9999999",
+        "1539000",
+        "1352000",
+        "1014000",
+        "0"
+      ],
+      "ResetOnInit": true
+    },
+    {
+      "Name": "IntFreq",
+      "Path": "/sys/devices/platform/17000020.devfreq_int/devfreq/17000020.devfreq_int/min_freq",
+      "Values": [
+        "9999999",
+        "0"
+      ],
+      "ResetOnInit": true
+    },
+    {
+      "Name": "INTCAMFreq",
+      "Path": "/sys/devices/platform/17000030.devfreq_intcam/devfreq/17000030.devfreq_intcam/min_freq",
+      "Values": [
+        "664000",
+        "233000",
+        "67000"
+      ],
+      "ResetOnInit": true
+    },
+    {
+      "Name": "TNRMaxFreq",
+      "Path": "/sys/devices/platform/17000060.devfreq_tnr/devfreq/17000060.devfreq_tnr/max_freq",
+      "Values": [
+        "664000",
+        "111000"
+      ],
+      "DefaultIndex": 0,
+      "ResetOnInit": true
+    },
+    {
+      "Name": "TNRFreq",
+      "Path": "/sys/devices/platform/17000060.devfreq_tnr/devfreq/17000060.devfreq_tnr/min_freq",
+      "Values": [
+        "664000",
+        "233000",
+        "67000"
+      ],
+      "ResetOnInit": true
+    },
+    {
+      "Name": "KswapdUclaimMin",
+      "Path": "/sys/kernel/vendor_mm/kswapd_uclamp_min",
+      "Values": [
+        "0",
+        "200"
+      ],
+      "ResetOnInit": true
     }
   ],
   "Actions": [
@@ -729,16 +882,10 @@
       "Value": "0-3"
     },
     {
-      "PowerHint": "INTERACTION",
-      "Node": "TAPreferHighCap",
-      "Duration": 0,
-      "Value": "1"
-    },
-    {
-      "PowerHint": "INTERACTION",
-      "Node": "TAPreferIdle",
-      "Duration": 0,
-      "Value": "0"
+      "PowerHint": "LAUNCH",
+      "Node": "CPUSkipMask",
+      "Duration": 5000,
+      "Value": "0x0"
     },
     {
       "PowerHint": "LAUNCH",
@@ -747,22 +894,16 @@
       "Value": "0"
     },
     {
+      "PowerHint": "LAUNCH",
+      "Node": "AutoPreferIdle",
+      "Duration": 5000,
+      "Value": "0"
+    },
+    {
       "PowerHint": "LAUNCH_GPU",
       "Node": "GPUDvfsPeriod",
       "Duration": 1000,
       "Value": "10"
-    },
-    {
-      "PowerHint": "LAUNCH",
-      "Node": "FGPreferIdle",
-      "Duration": 5000,
-      "Value": "1"
-    },
-    {
-      "PowerHint": "LAUNCH",
-      "Node": "SchedLibMaskIn",
-      "Duration": 5000,
-      "Value": "0x100"
     },
     {
       "PowerHint": "LAUNCH",
@@ -789,6 +930,18 @@
     },
     {
       "PowerHint": "LAUNCH",
+      "Node": "CPUUClampMaxFilterEnable",
+      "Duration": 5000,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "BGUClampMaxBoost",
+      "Duration": 5000,
+      "Value": "512"
+    },
+    {
+      "PowerHint": "LAUNCH",
       "Node": "TAUClampBoost",
       "Duration": 5000,
       "Value": "765"
@@ -803,18 +956,17 @@
       "PowerHint": "LAUNCH",
       "Node": "MemFreq",
       "Duration": 5000,
-      "Value": "3172000"
-    },
-    {
-      "PowerHint": "LAUNCH",
-      "Node": "NPITaskPacking",
-      "Duration": 5000,
-      "Value": "0"
+      "Value": "9999999"
     },
     {
       "PowerHint": "LAUNCH",
       "Type": "DoHint",
       "Value": "LAUNCH_PMU"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Type": "DoHint",
+      "Value": "LAUNCH_EXTEND"
     },
     {
       "PowerHint": "LAUNCH",
@@ -848,8 +1000,33 @@
     },
     {
       "PowerHint": "LAUNCH",
-      "Type": "DoHint",
-      "Value": "LAUNCH_EXTEND"
+      "Node": "TAPreferIdle",
+      "Duration": 5000,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "TAPreferredIdleMaskHigh",
+      "Duration": 5000,
+      "Value": "0xff"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "TAPreferredIdleMaskMid",
+      "Duration": 5000,
+      "Value": "0xff"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "FGPreferIdle",
+      "Duration": 5000,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "LAUNCH_EXTEND",
+      "Node": "CPUSkipMask",
+      "Duration": 2000,
+      "Value": "0x0"
     },
     {
       "PowerHint": "LAUNCH_EXTEND",
@@ -883,6 +1060,24 @@
     },
     {
       "PowerHint": "LAUNCH_EXTEND",
+      "Node": "CPUUClampMaxFilterEnable",
+      "Duration": 2000,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "LAUNCH_EXTEND",
+      "Node": "BGUClampMaxBoost",
+      "Duration": 2000,
+      "Value": "512"
+    },
+    {
+      "PowerHint": "LAUNCH_EXTEND",
+      "Node": "Dex2oatUClampMaxBoost",
+      "Duration": 2000,
+      "Value": "615"
+    },
+    {
+      "PowerHint": "LAUNCH_EXTEND",
       "Node": "CPULittleClusterDownRateLimitUs",
       "Duration": 2000,
       "Value": "5000"
@@ -913,9 +1108,9 @@
     },
     {
       "PowerHint": "LAUNCH_EXTEND",
-      "Node": "SchedLibMaskIn",
-      "Duration": 5000,
-      "Value": "0x100"
+      "Node": "AutoPreferIdle",
+      "Duration": 2000,
+      "Value": "0"
     },
     {
       "PowerHint": "LAUNCH_PMU",
@@ -930,16 +1125,16 @@
       "Value": "0"
     },
     {
+      "PowerHint": "DISPLAY_CHANGE",
+      "Node": "AutoPreferIdle",
+      "Duration": 5000,
+      "Value": "0"
+    },
+    {
       "PowerHint": "DISPLAY_CHANGE_GPU",
       "Node": "GPUDvfsPeriod",
       "Duration": 1000,
       "Value": "10"
-    },
-    {
-      "PowerHint": "DISPLAY_CHANGE",
-      "Node": "FGPreferIdle",
-      "Duration": 5000,
-      "Value": "1"
     },
     {
       "PowerHint": "DISPLAY_CHANGE",
@@ -980,13 +1175,49 @@
       "PowerHint": "DISPLAY_CHANGE",
       "Node": "MemFreq",
       "Duration": 5000,
-      "Value": "3172000"
+      "Value": "9999999"
     },
     {
       "PowerHint": "DISPLAY_CHANGE",
-      "Node": "NPITaskPacking",
+      "Node": "CPUDVFSHeadroom",
+      "Duration": 5000,
+      "Value": "1280"
+    },
+    {
+      "PowerHint": "DISPLAY_CHANGE",
+      "Node": "CPUTaperedDVFSHeadroomEnable",
       "Duration": 5000,
       "Value": "0"
+    },
+    {
+      "PowerHint": "DISPLAY_CHANGE",
+      "Node": "CPULittleClusterDownRateLimitUs",
+      "Duration": 5000,
+      "Value": "5000"
+    },
+    {
+      "PowerHint": "DISPLAY_CHANGE",
+      "Node": "CPUMidClusterDownRateLimitUs",
+      "Duration": 5000,
+      "Value": "20000"
+    },
+    {
+      "PowerHint": "DISPLAY_CHANGE",
+      "Node": "CPUBigClusterDownRateLimitUs",
+      "Duration": 5000,
+      "Value": "20000"
+    },
+    {
+      "PowerHint": "DISPLAY_CHANGE",
+      "Node": "TAPreferIdle",
+      "Duration": 5000,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "DISPLAY_CHANGE",
+      "Node": "FGPreferIdle",
+      "Duration": 5000,
+      "Value": "1"
     },
     {
       "PowerHint": "CPU_LOAD_RESET",
@@ -1004,19 +1235,19 @@
       "PowerHint": "DISPLAY_INACTIVE",
       "Node": "CPULittleClusterDownRateLimitUs",
       "Duration": 0,
-      "Value": "500"
+      "Value": "1000"
     },
     {
       "PowerHint": "DISPLAY_INACTIVE",
       "Node": "CPUMidClusterDownRateLimitUs",
       "Duration": 0,
-      "Value": "500"
+      "Value": "1000"
     },
     {
       "PowerHint": "DISPLAY_INACTIVE",
       "Node": "CPUBigClusterDownRateLimitUs",
       "Duration": 0,
-      "Value": "500"
+      "Value": "1000"
     },
     {
       "PowerHint": "DISPLAY_INACTIVE",
@@ -1031,15 +1262,69 @@
     },
     {
       "PowerHint": "DISPLAY_INACTIVE",
+      "Node": "AutoPreferIdle",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "DISPLAY_INACTIVE",
       "Node": "FGPreferIdle",
       "Duration": 0,
       "Value": "0"
     },
     {
+      "PowerHint": "DISPLAY_INACTIVE",
+      "Node": "PerTaskMaxIowaitBoost",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "DISPLAY_INACTIVE",
+      "Node": "KswapdUclaimMin",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "DISPLAY_INACTIVE",
+      "Node": "CPUUtilThreshold",
+      "Duration": 0,
+      "Value": "1100"
+    },
+    {
+      "PowerHint": "DISPLAY_INACTIVE",
+      "Node": "CPUDVFSHeadroom",
+      "Duration": 0,
+      "Value": "1100"
+    },
+    {
+      "PowerHint": "CAMERA_LAUNCH",
+      "Node": "CPUSkipMask",
+      "Duration": 1000,
+      "Value": "0x0"
+    },
+    {
+      "PowerHint": "CAMERA_LAUNCH",
+      "Node": "CPU_BIG_TSKIN_BYPASS",
+      "Duration": 1000,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "CAMERA_LAUNCH",
+      "Node": "CPU_MID_TSKIN_BYPASS",
+      "Duration": 1000,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "CAMERA_LAUNCH",
+      "Node": "CPU_LITTLE_TSKIN_BYPASS",
+      "Duration": 1000,
+      "Value": "1"
+    },
+    {
       "PowerHint": "CAMERA_LAUNCH",
       "Node": "MemFreq",
       "Duration": 1000,
-      "Value": "3172000"
+      "Value": "9999999"
     },
     {
       "PowerHint": "CAMERA_LAUNCH",
@@ -1091,15 +1376,39 @@
     },
     {
       "PowerHint": "CAMERA_LAUNCH",
-      "Node": "NPITaskPacking",
+      "Node": "PMU_POLL",
       "Duration": 1000,
       "Value": "0"
     },
     {
       "PowerHint": "CAMERA_LAUNCH",
-      "Node": "PMU_POLL",
+      "Node": "CDPreferIdle",
+      "Duration": 1000,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "CAMERA_LAUNCH",
+      "Node": "AutoPreferIdle",
       "Duration": 1000,
       "Value": "0"
+    },
+    {
+      "PowerHint": "CAMERA_LAUNCH_EXTENDED",
+      "Node": "CPU_BIG_TSKIN_BYPASS",
+      "Duration": 2000,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "CAMERA_LAUNCH_EXTENDED",
+      "Node": "CPU_MID_TSKIN_BYPASS",
+      "Duration": 2000,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "CAMERA_LAUNCH_EXTENDED",
+      "Node": "CPU_LITTLE_TSKIN_BYPASS",
+      "Duration": 2000,
+      "Value": "1"
     },
     {
       "PowerHint": "CAMERA_LAUNCH_EXTENDED",
@@ -1121,105 +1430,99 @@
     },
     {
       "PowerHint": "CAMERA_LAUNCH_EXTENDED",
-      "Node": "NPITaskPacking",
-      "Duration": 2000,
-      "Value": "0"
-    },
-    {
-      "PowerHint": "CAMERA_LAUNCH_EXTENDED",
       "Node": "PMU_POLL",
       "Duration": 2000,
       "Value": "0"
     },
     {
-      "PowerHint": "CAMERA_THERMAL_CPU_THROTTLE",
-      "Node": "CPUBigClusterMaxFreq",
-      "Duration": 1000,
-      "Value": "984000"
-    },
-    {
-      "PowerHint": "CAMERA_THERMAL_CPU_THROTTLE",
-      "Node": "CPUMidClusterMaxFreq",
-      "Duration": 1000,
-      "Value": "1024000"
-    },
-    {
-      "PowerHint": "CAMERA_THERMAL_CPU_THROTTLE",
-      "Node": "CPULittleClusterMaxFreq",
-      "Duration": 1000,
-      "Value": "1098000"
+      "PowerHint": "CAMERA_CAPTURE_CPU_THROTTLE",
+      "Node": "PMU_BIG_LIMIT_FREQ",
+      "Duration": 3000,
+      "Value": "1826000"
     },
     {
       "PowerHint": "CAMERA_CAPTURE_CPU_THROTTLE",
-      "Node": "CPUBigClusterMaxFreq",
-      "Duration": 2500,
-      "Value": "1426000"
-    },
-    {
-      "PowerHint": "CAMERA_CAPTURE_CPU_THROTTLE",
-      "Node": "CPUMidClusterMaxFreq",
-      "Duration": 2500,
-      "Value": "1197000"
-    },
-    {
-      "PowerHint": "CAMERA_CAPTURE_CPU_THROTTLE",
-      "Node": "CPULittleClusterMaxFreq",
-      "Duration": 2500,
-      "Value": "1401000"
-    },
-    {
-      "PowerHint": "CAMERA_CAPTURE_CPU_THROTTLE",
-      "Node": "PMU_POLL",
-      "Duration": 2500,
+      "Node": "PMU_LIT_LCPI_THRESHOLD",
+      "Duration": 3000,
       "Value": "0"
     },
     {
       "PowerHint": "CAMERA_CAPTURE_CPU_THROTTLE",
-      "Node": "EM_Profile",
-      "Duration": 2500,
-      "Value": "default"
+      "Node": "PMU_LIT_SPC_THRESHOLD",
+      "Duration": 3000,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "CAMERA_CAPTURE_CPU_THROTTLE",
+      "Node": "PMU_MID_LCPI_THRESHOLD",
+      "Duration": 3000,
+      "Value": "3"
+    },
+    {
+      "PowerHint": "CAMERA_CAPTURE_CPU_THROTTLE",
+      "Node": "PMU_MID_SPC_THRESHOLD",
+      "Duration": 3000,
+      "Value": "50"
+    },
+    {
+      "PowerHint": "CAMERA_CAPTURE_CPU_THROTTLE",
+      "Node": "PMU_BIG_LCPI_THRESHOLD",
+      "Duration": 3000,
+      "Value": "3"
+    },
+    {
+      "PowerHint": "CAMERA_CAPTURE_CPU_THROTTLE",
+      "Node": "PMU_BIG_SPC_THRESHOLD",
+      "Duration": 3000,
+      "Value": "50"
+    },
+    {
+      "PowerHint": "CAMERA_CAPTURE_CPU_THROTTLE",
+      "Node": "TAUClampBoost",
+      "Duration": 3000,
+      "Value": "600"
+    },
+    {
+      "PowerHint": "CAMERA_THERMAL_SEVERE_BOOST",
+      "Node": "CDPreferHighCap",
+      "Duration": 0,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "CAMERA_THERMAL_SEVERE_BOOST",
+      "Node": "CAMUClampBoost",
+      "Duration": 0,
+      "Value": "250"
+    },
+    {
+      "PowerHint": "CAMERA_THERMAL_SEVERE_BOOST",
+      "Node": "CPUSkipMask",
+      "Duration": 0,
+      "Value": "0x0"
     },
     {
       "PowerHint": "CAMERA_SHOT",
-      "Node": "MemFreq",
-      "Duration": 300,
-      "Value": "3172000"
+      "Node": "PMU_POLL",
+      "Duration": 100,
+      "Value": "0"
     },
     {
       "PowerHint": "CAMERA_SHOT",
-      "Node": "CPUBigClusterMaxFreq",
-      "Duration": 300,
-      "Value": "9999999"
-    },
-    {
-      "PowerHint": "CAMERA_SHOT",
-      "Node": "CPUBigClusterMinFreq",
-      "Duration": 300,
-      "Value": "9999999"
-    },
-    {
-      "PowerHint": "CAMERA_SHOT",
-      "Node": "CPUMidClusterMaxFreq",
-      "Duration": 300,
-      "Value": "9999999"
-    },
-    {
-      "PowerHint": "CAMERA_SHOT",
-      "Node": "CPUMidClusterMinFreq",
-      "Duration": 300,
-      "Value": "9999999"
+      "Node": "CAMUClampBoost",
+      "Duration": 100,
+      "Value": "765"
     },
     {
       "PowerHint": "CAMERA_BACKEND_BOOST",
       "Node": "MemFreq",
       "Duration": 1000,
-      "Value": "3172000"
+      "Value": "9999999"
     },
     {
       "PowerHint": "CAMERA_BACKEND_BOOST",
       "Node": "IntFreq",
       "Duration": 1000,
-      "Value": "533000"
+      "Value": "9999999"
     },
     {
       "PowerHint": "CAMERA_BACKEND_BOOST",
@@ -1238,6 +1541,12 @@
       "Node": "CDPreferIdle",
       "Duration": 100,
       "Value": "1"
+    },
+    {
+      "PowerHint": "CAMERA_ZOOMING_BOOST",
+      "Node": "AutoPreferIdle",
+      "Duration": 100,
+      "Value": "0"
     },
     {
       "PowerHint": "CAMERA_ZOOMING_BOOST",
@@ -1451,27 +1760,105 @@
     },
     {
       "PowerHint": "CAMERA_STREAMING_EXTREME",
-      "Node": "CPULittleClusterMaxFreq",
+      "Node": "PMU_LIT_LCPI_THRESHOLD",
       "Duration": 0,
-      "Value": "1401000"
+      "Value": "0"
     },
     {
       "PowerHint": "CAMERA_STREAMING_EXTREME",
-      "Node": "CPUMidClusterMaxFreq",
+      "Node": "PMU_LIT_SPC_THRESHOLD",
       "Duration": 0,
-      "Value": "1491000"
+      "Value": "0"
     },
     {
       "PowerHint": "CAMERA_STREAMING_EXTREME",
-      "Node": "CPUBigClusterMaxFreq",
+      "Node": "PMU_MID_LCPI_THRESHOLD",
+      "Duration": 0,
+      "Value": "3"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_EXTREME",
+      "Node": "PMU_MID_SPC_THRESHOLD",
+      "Duration": 0,
+      "Value": "50"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_EXTREME",
+      "Node": "PMU_BIG_LIMIT_FREQ",
       "Duration": 0,
       "Value": "1826000"
     },
     {
       "PowerHint": "CAMERA_STREAMING_EXTREME",
-      "Node": "CDPreferHighCap",
+      "Node": "PMU_BIG_LCPI_THRESHOLD",
+      "Duration": 0,
+      "Value": "3"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_EXTREME",
+      "Node": "PMU_BIG_SPC_THRESHOLD",
+      "Duration": 0,
+      "Value": "50"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_EXTREME",
+      "Node": "PMU_POLL",
       "Duration": 0,
       "Value": "1"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_EXTREME",
+      "Node": "EM_Profile",
+      "Duration": 0,
+      "Value": "cam1"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_EXTREME",
+      "Node": "AutoMigrationMarginsEnable",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_EXTREME",
+      "Node": "AutoDvfsHeadroomEnable",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_EXTREME",
+      "Node": "PerTaskMaxIowaitBoost",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_EXTREME",
+      "Node": "CPULittleClusterDownRateLimitUs",
+      "Duration": 0,
+      "Value": "5000"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_EXTREME",
+      "Node": "CPUMidClusterDownRateLimitUs",
+      "Duration": 0,
+      "Value": "20000"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_EXTREME",
+      "Node": "CPUBigClusterDownRateLimitUs",
+      "Duration": 0,
+      "Value": "20000"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_EXTREME",
+      "Node": "CPUDVFSHeadroom",
+      "Duration": 0,
+      "Value": "1100 1055 1055"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_EXTREME",
+      "Node": "CPUUtilThreshold",
+      "Duration": 0,
+      "Value": "1100"
     },
     {
       "PowerHint": "CAMERA_STREAMING_EXTREME",
@@ -1483,7 +1870,7 @@
       "PowerHint": "CAMERA_STREAMING_EXTREME",
       "Node": "MIFTargetLoad",
       "Duration": 0,
-      "Value": "80 10 80"
+      "Value": "20 80"
     },
     {
       "PowerHint": "CAMERA_STREAMING_EXTREME",
@@ -1494,6 +1881,12 @@
     {
       "PowerHint": "CAMERA_STREAMING_EXTREME",
       "Node": "TAPreferIdle",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_EXTREME",
+      "Node": "AutoPreferIdle",
       "Duration": 0,
       "Value": "0"
     },
@@ -1517,15 +1910,9 @@
     },
     {
       "PowerHint": "CAMERA_STREAMING_EXTREME",
-      "Node": "NPITaskPacking",
+      "Node": "CPUSkipMask",
       "Duration": 0,
-      "Value": "0"
-    },
-    {
-      "PowerHint": "CAMERA_STREAMING_EXTREME",
-      "Node": "NewlyIdleBalancer",
-      "Duration": 0,
-      "Value": "0"
+      "Value": "0x0"
     },
     {
       "PowerHint": "CAMERA_STREAMING_HIGH",
@@ -1589,13 +1976,49 @@
     },
     {
       "PowerHint": "CAMERA_STREAMING_HIGH",
-      "Node": "CPUUtilThreshold",
+      "Node": "AutoMigrationMarginsEnable",
       "Duration": 0,
-      "Value": "1100"
+      "Value": "0"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_HIGH",
+      "Node": "AutoDvfsHeadroomEnable",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_HIGH",
+      "Node": "PerTaskMaxIowaitBoost",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_HIGH",
+      "Node": "CPULittleClusterDownRateLimitUs",
+      "Duration": 0,
+      "Value": "5000"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_HIGH",
+      "Node": "CPUMidClusterDownRateLimitUs",
+      "Duration": 0,
+      "Value": "20000"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_HIGH",
+      "Node": "CPUBigClusterDownRateLimitUs",
+      "Duration": 0,
+      "Value": "20000"
     },
     {
       "PowerHint": "CAMERA_STREAMING_HIGH",
       "Node": "CPUDVFSHeadroom",
+      "Duration": 0,
+      "Value": "1100 1055 1055"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_HIGH",
+      "Node": "CPUUtilThreshold",
       "Duration": 0,
       "Value": "1100"
     },
@@ -1603,7 +2026,7 @@
       "PowerHint": "CAMERA_STREAMING_HIGH",
       "Node": "CDPreferHighCap",
       "Duration": 0,
-      "Value": "1"
+      "Value": "0"
     },
     {
       "PowerHint": "CAMERA_STREAMING_HIGH",
@@ -1615,17 +2038,29 @@
       "PowerHint": "CAMERA_STREAMING_HIGH",
       "Node": "MIFTargetLoad",
       "Duration": 0,
-      "Value": "80 10 80"
+      "Value": "20 80"
     },
     {
       "PowerHint": "CAMERA_STREAMING_HIGH",
       "Node": "TAPreferHighCap",
       "Duration": 0,
-      "Value": "1"
+      "Value": "0"
     },
     {
       "PowerHint": "CAMERA_STREAMING_HIGH",
       "Node": "TAPreferIdle",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_HIGH",
+      "Node": "CDPreferIdle",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_HIGH",
+      "Node": "AutoPreferIdle",
       "Duration": 0,
       "Value": "0"
     },
@@ -1649,13 +2084,13 @@
     },
     {
       "PowerHint": "CAMERA_STREAMING_HIGH",
-      "Node": "NPITaskPacking",
+      "Node": "CPUSkipMask",
       "Duration": 0,
-      "Value": "0"
+      "Value": "0x80"
     },
     {
-      "PowerHint": "CAMERA_STREAMING_HIGH",
-      "Node": "NewlyIdleBalancer",
+      "PowerHint": "CAMERA_STREAMING_STANDARD",
+      "Node": "AutoPreferIdle",
       "Duration": 0,
       "Value": "0"
     },
@@ -1721,15 +2156,69 @@
     },
     {
       "PowerHint": "CAMERA_STREAMING_STANDARD",
+      "Node": "CPUUtilThreshold",
+      "Duration": 0,
+      "Value": "1100 1024 1100"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_STANDARD",
+      "Node": "AutoMigrationMarginsEnable",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_STANDARD",
+      "Node": "AutoDvfsHeadroomEnable",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_STANDARD",
+      "Node": "PerTaskMaxIowaitBoost",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_STANDARD",
+      "Node": "CPULittleClusterDownRateLimitUs",
+      "Duration": 0,
+      "Value": "5000"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_STANDARD",
+      "Node": "CPUMidClusterDownRateLimitUs",
+      "Duration": 0,
+      "Value": "20000"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_STANDARD",
+      "Node": "CPUBigClusterDownRateLimitUs",
+      "Duration": 0,
+      "Value": "20000"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_STANDARD",
+      "Node": "CPUDVFSHeadroom",
+      "Duration": 0,
+      "Value": "1100"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_STANDARD",
       "Node": "CDPreferHighCap",
       "Duration": 0,
-      "Value": "1"
+      "Value": "0"
     },
     {
       "PowerHint": "CAMERA_STREAMING_STANDARD",
       "Node": "TAPreferHighCap",
       "Duration": 0,
-      "Value": "1"
+      "Value": "0"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_STANDARD",
+      "Node": "TAPreferIdle",
+      "Duration": 0,
+      "Value": "0"
     },
     {
       "PowerHint": "CAMERA_STREAMING_STANDARD",
@@ -1741,7 +2230,7 @@
       "PowerHint": "CAMERA_STREAMING_STANDARD",
       "Node": "MIFTargetLoad",
       "Duration": 0,
-      "Value": "20 10 80"
+      "Value": "20 80"
     },
     {
       "PowerHint": "CAMERA_STREAMING_STANDARD",
@@ -1763,21 +2252,69 @@
     },
     {
       "PowerHint": "CAMERA_STREAMING_STANDARD",
-      "Node": "NPITaskPacking",
+      "Node": "CPUSkipMask",
+      "Duration": 0,
+      "Value": "0x80"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_LOW",
+      "Node": "AutoPreferIdle",
       "Duration": 0,
       "Value": "0"
     },
     {
-      "PowerHint": "CAMERA_STREAMING_STANDARD",
-      "Node": "NewlyIdleBalancer",
+      "PowerHint": "CAMERA_STREAMING_LOW",
+      "Node": "AutoMigrationMarginsEnable",
       "Duration": 0,
       "Value": "0"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_LOW",
+      "Node": "AutoDvfsHeadroomEnable",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_LOW",
+      "Node": "PerTaskMaxIowaitBoost",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_LOW",
+      "Node": "CPULittleClusterDownRateLimitUs",
+      "Duration": 0,
+      "Value": "5000"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_LOW",
+      "Node": "CPUMidClusterDownRateLimitUs",
+      "Duration": 0,
+      "Value": "20000"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_LOW",
+      "Node": "CPUBigClusterDownRateLimitUs",
+      "Duration": 0,
+      "Value": "20000"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_LOW",
+      "Node": "CPUDVFSHeadroom",
+      "Duration": 0,
+      "Value": "1280"
     },
     {
       "PowerHint": "CAMERA_STREAMING_LOW",
       "Node": "PowerHALCameraRunning",
       "Duration": 0,
       "Value": "1"
+    },
+    {
+      "PowerHint": "CAMERA_STREAMING_LOW",
+      "Node": "CPUUtilThreshold",
+      "Duration": 0,
+      "Value": "1280"
     },
     {
       "PowerHint": "CAMERA_STREAMING_LOW",
@@ -1825,7 +2362,7 @@
       "PowerHint": "CAMERA_STREAMING_LOW",
       "Node": "MIFTargetLoad",
       "Duration": 0,
-      "Value": "20 10 80"
+      "Value": "20 80"
     },
     {
       "PowerHint": "CAMERA_STREAMING_LOW",
@@ -1847,15 +2384,9 @@
     },
     {
       "PowerHint": "CAMERA_STREAMING_LOW",
-      "Node": "NPITaskPacking",
+      "Node": "CPUSkipMask",
       "Duration": 0,
-      "Value": "0"
-    },
-    {
-      "PowerHint": "CAMERA_STREAMING_LOW",
-      "Node": "NewlyIdleBalancer",
-      "Duration": 0,
-      "Value": "0"
+      "Value": "0x0"
     },
     {
       "PowerHint": "CAMERA_VIDEO_RECORDING",
@@ -1888,6 +2419,24 @@
       "Node": "GPUMinFreq",
       "Duration": 0,
       "Value": "302000"
+    },
+    {
+      "PowerHint": "CAMERA_TNR_LOW",
+      "Node": "TNRMaxFreq",
+      "Duration": 0,
+      "Value": "111000"
+    },
+    {
+      "PowerHint": "CAMERA_ADJUST_BACKEND_MIN_FREQ",
+      "Node": "INTCAMFreq",
+      "Duration": 0,
+      "Value": "233000"
+    },
+    {
+      "PowerHint": "CAMERA_ADJUST_BACKEND_MIN_FREQ",
+      "Node": "TNRFreq",
+      "Duration": 0,
+      "Value": "233000"
     },
     {
       "PowerHint": "FIXED_PERFORMANCE",
@@ -2022,16 +2571,88 @@
       "Value": "1"
     },
     {
+      "PowerHint": "LOW_POWER",
+      "Node": "BigTjOffset",
+      "Duration": 0,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "LOW_POWER",
+      "Node": "MidTjOffset",
+      "Duration": 0,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "LOW_POWER",
+      "Node": "LittleTjOffset",
+      "Duration": 0,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "LOW_POWER",
+      "Node": "G3dTjOffset",
+      "Duration": 0,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "LOW_POWER",
+      "Node": "TpuTjOffset",
+      "Duration": 0,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "LOW_POWER",
+      "Node": "CPUTaperedDVFSHeadroomEnable",
+      "Duration": 0,
+      "Value": "1"
+    },
+    {
       "PowerHint": "REFRESH_120FPS",
       "Node": "TAUClampBoost",
       "Duration": 0,
       "Value": "1"
     },
     {
+      "PowerHint": "REFRESH_120FPS",
+      "Node": "CPULittleClusterUpRateLimitUs",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "REFRESH_120FPS",
+      "Node": "CPUMidClusterUpRateLimitUs",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "REFRESH_120FPS",
+      "Node": "CPUBigClusterUpRateLimitUs",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
       "PowerHint": "REFRESH_60FPS",
       "Node": "TAUClampBoost",
       "Duration": 0,
       "Value": "1"
+    },
+    {
+      "PowerHint": "REFRESH_60FPS",
+      "Node": "CPULittleClusterUpRateLimitUs",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "REFRESH_60FPS",
+      "Node": "CPUMidClusterUpRateLimitUs",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "REFRESH_60FPS",
+      "Node": "CPUBigClusterUpRateLimitUs",
+      "Duration": 0,
+      "Value": "0"
     },
     {
       "PowerHint": "ADPF_DISABLE_TA_BOOST",
@@ -2099,16 +2720,130 @@
       "Value": "400000"
     },
     {
+      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_LIGHT",
+      "Node": "PMU_POLL",
+      "Duration": 0,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_LIGHT",
+      "Node": "TpuTjOffset",
+      "Duration": 0,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_LIGHT",
+      "Node": "Dex2oatThreads",
+      "Duration": 0,
+      "Value": "6"
+    },
+    {
+      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_LIGHT",
+      "Node": "Dex2oatCPUSet",
+      "Duration": 0,
+      "Value": "0,1,2,3,4,5,6"
+    },
+    {
+      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_LIGHT",
+      "Node": "Dex2oatGroup",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_LIGHT",
+      "Node": "CPUTaperedDVFSHeadroomEnable",
+      "Duration": 0,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_MODERATE",
+      "Node": "Dex2oatThreads",
+      "Duration": 0,
+      "Value": "4"
+    },
+    {
+      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_MODERATE",
+      "Node": "Dex2oatCPUSet",
+      "Duration": 0,
+      "Value": "0,1,2,3"
+    },
+    {
+      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_CRITICAL",
+      "Node": "Dex2oatThreads",
+      "Duration": 0,
+      "Value": "2"
+    },
+    {
+      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_CRITICAL",
+      "Node": "BigTjOffset",
+      "Duration": 0,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_CRITICAL",
+      "Node": "MidTjOffset",
+      "Duration": 0,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_CRITICAL",
+      "Node": "LittleTjOffset",
+      "Duration": 0,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_CRITICAL",
+      "Node": "G3dTjOffset",
+      "Duration": 0,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_CRITICAL",
+      "Node": "CPU_LITTLE_TSKIN_BYPASS",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_CRITICAL",
+      "Node": "CPU_MID_TSKIN_BYPASS",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_CRITICAL",
+      "Node": "CPU_BIG_TSKIN_BYPASS",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_EMERGENCY",
+      "Node": "Dex2oatThreads",
+      "Duration": 0,
+      "Value": "1"
+    },
+    {
       "PowerHint": "GAME",
-      "Node": "VIRTUAL-SKIN-CPU",
+      "Node": "PMU_POLL",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "GAME",
+      "Node": "VIRTUAL-SKIN-CPU-LIGHT-ODPM",
       "Duration": 0,
       "Value": "game"
     },
     {
       "PowerHint": "GAME",
-      "Node": "CPUDVFSHeadroom",
+      "Node": "VIRTUAL-SKIN-CPU-MID",
       "Duration": 0,
-      "Value": "1100"
+      "Value": "game"
+    },
+    {
+      "PowerHint": "GAME",
+      "Node": "VIRTUAL-SKIN-CPU-HIGH",
+      "Duration": 0,
+      "Value": "game"
     },
     {
       "PowerHint": "GAME",
@@ -2120,23 +2855,29 @@
       "PowerHint": "GAME",
       "Node": "CPULittleClusterDownRateLimitUs",
       "Duration": 0,
-      "Value": "500"
+      "Value": "1000"
     },
     {
       "PowerHint": "GAME",
       "Node": "CPUMidClusterDownRateLimitUs",
       "Duration": 0,
-      "Value": "3000"
+      "Value": "1000"
     },
     {
       "PowerHint": "GAME",
       "Node": "CPUBigClusterDownRateLimitUs",
       "Duration": 0,
-      "Value": "3000"
+      "Value": "1000"
     },
     {
       "PowerHint": "GAME",
       "Node": "TAPreferIdle",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "GAME",
+      "Node": "AutoPreferIdle",
       "Duration": 0,
       "Value": "0"
     },
@@ -2154,296 +2895,38 @@
     },
     {
       "PowerHint": "GAME",
-      "Node": "SchedLibMaskIn",
+      "Node": "AutoMigrationMarginsEnable",
       "Duration": 0,
-      "Value": "0x100"
+      "Value": "1"
     },
     {
       "PowerHint": "GAME",
-      "Node": "EM_Profile",
-      "Duration": 0,
-      "Value": "default"
-    },
-    {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_LIGHT",
-      "Node": "PMU_POLL",
+      "Node": "AutoDvfsHeadroomEnable",
       "Duration": 0,
       "Value": "1"
     },
     {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_LIGHT",
-      "Node": "Dex2oatGroup",
+      "PowerHint": "GAME",
+      "Node": "PerTaskMaxIowaitBoost",
       "Duration": 0,
-      "Value": "0"
-    },
-    {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_LIGHT",
-      "Node": "Dex2oatThreads",
-      "Duration": 0,
-      "Value": "6"
-    },
-    {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_LIGHT",
-      "Node": "Dex2oatCPUSet",
-      "Duration": 0,
-      "Value": "0,1,2,3,4,5"
-    },
-    {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_MODERATE",
-      "Node": "PMU_POLL",
-      "Duration": 0,
-      "Value": "1"
-    },
-    {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_MODERATE",
-      "Node": "Dex2oatThreads",
-      "Duration": 0,
-      "Value": "4"
-    },
-    {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_MODERATE",
-      "Node": "Dex2oatCPUSet",
-      "Duration": 0,
-      "Value": "0,1,2,3"
-    },
-    {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_MODERATE",
-      "Node": "Dex2oatGroup",
-      "Duration": 0,
-      "Value": "0"
-    },
-    {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_SEVERE",
-      "Node": "PMU_POLL",
-      "Duration": 0,
-      "Value": "1"
-    },
-    {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_SEVERE",
-      "Node": "Dex2oatThreads",
-      "Duration": 0,
-      "Value": "4"
-    },
-    {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_SEVERE",
-      "Node": "Dex2oatCPUSet",
-      "Duration": 0,
-      "Value": "0,1,2,3"
-    },
-    {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_SEVERE",
-      "Node": "Dex2oatGroup",
-      "Duration": 0,
-      "Value": "0"
-    },
-    {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_CRITICAL",
-      "Node": "PMU_POLL",
-      "Duration": 0,
-      "Value": "1"
-    },
-    {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_CRITICAL",
-      "Node": "BigControlTempSet",
-      "Duration": 0,
-      "Value": "80000"
-    },
-    {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_CRITICAL",
-      "Node": "MidControlTempSet",
-      "Duration": 0,
-      "Value": "80000"
-    },
-    {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_CRITICAL",
-      "Node": "LittleControlTempSet",
-      "Duration": 0,
-      "Value": "80000"
-    },
-    {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_CRITICAL",
-      "Node": "G3dControlTempSet",
-      "Duration": 0,
-      "Value": "80000"
-    },
-    {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_CRITICAL",
-      "Node": "TpuControlTempSet",
-      "Duration": 0,
-      "Value": "80000"
-    },
-    {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_CRITICAL",
-      "Node": "BigSwitchOnTempSet",
-      "Duration": 0,
-      "Value": "60000"
-    },
-    {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_CRITICAL",
-      "Node": "MidSwitchOnTempSet",
-      "Duration": 0,
-      "Value": "60000"
-    },
-    {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_CRITICAL",
-      "Node": "LittleSwitchOnTempSet",
-      "Duration": 0,
-      "Value": "60000"
-    },
-    {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_CRITICAL",
-      "Node": "G3dSwitchOnTempSet",
-      "Duration": 0,
-      "Value": "60000"
-    },
-    {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_CRITICAL",
-      "Node": "TpuSwitchOnTempSet",
-      "Duration": 0,
-      "Value": "60000"
-    },
-    {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_CRITICAL",
-      "Node": "Dex2oatThreads",
-      "Duration": 0,
-      "Value": "2"
-    },
-    {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_CRITICAL",
-      "Node": "Dex2oatCPUSet",
-      "Duration": 0,
-      "Value": "0,1,2,3"
-    },
-    {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_CRITICAL",
-      "Node": "Dex2oatGroup",
-      "Duration": 0,
-      "Value": "0"
-    },
-    {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_EMERGENCY",
-      "Node": "PMU_POLL",
-      "Duration": 0,
-      "Value": "1"
-    },
-    {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_EMERGENCY",
-      "Node": "CPU_LITTLE_TSKIN_BYPASS",
-      "Duration": 0,
-      "Value": "0"
-    },
-    {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_EMERGENCY",
-      "Node": "CPU_MID_TSKIN_BYPASS",
-      "Duration": 0,
-      "Value": "0"
-    },
-    {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_EMERGENCY",
-      "Node": "CPU_BIG_TSKIN_BYPASS",
-      "Duration": 0,
-      "Value": "0"
-    },
-    {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_EMERGENCY",
-      "Node": "BigControlTempSet",
-      "Duration": 0,
-      "Value": "80000"
-    },
-    {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_EMERGENCY",
-      "Node": "MidControlTempSet",
-      "Duration": 0,
-      "Value": "80000"
-    },
-    {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_EMERGENCY",
-      "Node": "LittleControlTempSet",
-      "Duration": 0,
-      "Value": "80000"
-    },
-    {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_EMERGENCY",
-      "Node": "G3dControlTempSet",
-      "Duration": 0,
-      "Value": "80000"
-    },
-    {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_EMERGENCY",
-      "Node": "TpuControlTempSet",
-      "Duration": 0,
-      "Value": "80000"
-    },
-    {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_EMERGENCY",
-      "Node": "BigSwitchOnTempSet",
-      "Duration": 0,
-      "Value": "60000"
-    },
-    {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_EMERGENCY",
-      "Node": "MidSwitchOnTempSet",
-      "Duration": 0,
-      "Value": "60000"
-    },
-    {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_EMERGENCY",
-      "Node": "LittleSwitchOnTempSet",
-      "Duration": 0,
-      "Value": "60000"
-    },
-    {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_EMERGENCY",
-      "Node": "G3dSwitchOnTempSet",
-      "Duration": 0,
-      "Value": "60000"
-    },
-    {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_EMERGENCY",
-      "Node": "TpuSwitchOnTempSet",
-      "Duration": 0,
-      "Value": "60000"
-    },
-    {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_EMERGENCY",
-      "Node": "Dex2oatThreads",
-      "Duration": 0,
-      "Value": "1"
-    },
-    {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_EMERGENCY",
-      "Node": "Dex2oatCPUSet",
-      "Duration": 0,
-      "Value": "0,1,2,3"
-    },
-    {
-      "PowerHint": "THERMAL_VIRTUAL-SKIN-HINT_EMERGENCY",
-      "Node": "Dex2oatGroup",
-      "Duration": 0,
-      "Value": "0"
+      "Value": "512"
     },
     {
       "PowerHint": "FACE_UNLOCK_BOOST",
       "Node": "CPUBigClusterMaxFreq",
-      "Duration": 1000,
+      "Duration": 500,
       "Value": "9999999"
     },
     {
       "PowerHint": "FACE_UNLOCK_BOOST",
-      "Node": "CPU_LITTLE_TSKIN_BYPASS",
-      "Duration": 1000,
-      "Value": "1"
+      "Node": "CPUBigClusterMinFreq",
+      "Duration": 500,
+      "Value": "1826000"
     },
     {
       "PowerHint": "FACE_UNLOCK_BOOST",
       "Node": "CPU_MID_TSKIN_BYPASS",
-      "Duration": 1000,
-      "Value": "1"
-    },
-    {
-      "PowerHint": "FACE_UNLOCK_BOOST",
-      "Node": "CPU_BIG_TSKIN_BYPASS",
-      "Duration": 1000,
+      "Duration": 500,
       "Value": "1"
     },
     {
@@ -2498,7 +2981,7 @@
       "PowerHint": "ML_ACC",
       "Node": "MLUclampBoost",
       "Duration": 2000,
-      "Value": "813"
+      "Value": "812"
     },
     {
       "PowerHint": "ML_ACC",
