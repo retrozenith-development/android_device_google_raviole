@@ -24,6 +24,9 @@ PRODUCT_COPY_FILES += \
 # PowerShare
 include hardware/google/pixel/powershare/device.mk
 
+# Pixel Parts
+$(call inherit-product-if-exists, packages/apps/PixelParts/device.mk)
+
 # wireless_charger HAL service
 include device/google/gs-common/wireless_charger/wireless_charger.mk
 
