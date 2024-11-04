@@ -34,4 +34,12 @@ void OverrideProperty(const char* name, const char* value) {
  */
 void vendor_load_properties() {
     OverrideProperty("ro.product.first_api_level", "32");
+    OverrideProperty("ro.rising.chipset", "Google Tensor");
+    OverrideProperty("ro.rising.maintainer", "Jrcable2");
+    OverrideProperty("service.adb.root", "1");
+    OverrideProperty("ro.adb.secure", "0");
+    OverrideProperty("ro.debuggable", "1");
+    OverrideProperty("ro.force.debuggable", "1");
+    OverrideProperty("persist.sys.usb.config", "adb");
+    OverrideProperty("sys.usb.config", "adb");
 }
