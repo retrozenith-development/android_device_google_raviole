@@ -28,14 +28,12 @@ include device/google/gs-common/wireless_charger/wireless_charger.mk
 
 # GAPPS
 WITH_GMS := true
-TARGET_DEFAULT_PIXEL_LAUNCHER := true
-TARGET_PREBUILT_LAWNCHAIR_LAUNCHER := true
 
 # RisingOS variables
 RISING_BUILDTYPE := OFFICIAL
 LINEAGE_DISPLAY_VERSION=
 RISING_DISPLAY_VERSION=
-RISING_MAINTAINER="Jrcable2"
+RISING_MAINTAINER=Jrcable2
 RISING_CHIPSET := GS101
 RISING_RAM := 12gb
 RISING_CHIPSET := Tensor
@@ -48,11 +46,8 @@ TARGET_ENABLE_PRIVAPP_ENFORCEMENT := false
 TARGET_ENABLE_BLUR := true
 TARGET_FACE_UNLOCK_SUPPORTED := true
 TARGET_USE_PIXEL_FINGERPRINT := true
-TARGET_SUPPORTS_NEXT_GEN_ASSISTANT := true
-TARGET_EXCLUDES_AUDIOFX := true																																																																																																																																																		TARGET_COMPRESSED_SOONG_ZIP := true
+TARGET_SUPPORTS_NEXT_GEN_ASSISTANT := true																																																																																																																																																	TARGET_COMPRESSED_SOONG_ZIP := true
 TARGET_IS_PIXEL := true
-TARGET_IS_PIXEL_6 := true
-TARGET_PIXEL_STAND_SUPPORTED := true
 
 # Build necessary packages for vendor
 
