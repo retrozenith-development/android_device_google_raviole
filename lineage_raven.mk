@@ -8,6 +8,8 @@
 TARGET_DISABLE_EPPE := true
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
+TARGET_HAS_UDFPS := true
+
 # Inherit device configuration
 DEVICE_CODENAME := raven
 DEVICE_PATH := device/google/raviole
@@ -17,7 +19,7 @@ $(call inherit-product, device/google/gs101/lineage_common.mk)
 $(call inherit-product, $(DEVICE_PATH)/$(DEVICE_CODENAME)/device-lineage.mk)
 
 # setup dalvik vm configs.
-$(call inherit-product, frameworks/native/build/phone-xhdpi-12288-dalvik-heap.mk)
+$(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 
 # Device identifier. This must come after all inclusions
 PRODUCT_BRAND := google
