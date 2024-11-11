@@ -17,6 +17,9 @@ $(call inherit-product-if-exists, vendor/google/camera/config.mk)
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.telephony.euicc.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/android.hardware.telephony.euicc.xml
 
+# Fingerprint
+TARGET_HAS_UDFPS := true
+
 # PowerShare
 include hardware/google/pixel/powershare/device.mk
 
