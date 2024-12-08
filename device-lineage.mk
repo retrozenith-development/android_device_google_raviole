@@ -43,3 +43,6 @@ PRODUCT_PACKAGES += \
 # Sensors
 PRODUCT_PACKAGES += \
     sensors.dynamic_sensor_hal
+
+# Sign builds
+-include vendor/lineage-priv/keys/keys.mk
