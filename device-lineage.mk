@@ -26,6 +26,10 @@ include hardware/google/pixel/powershare/device.mk
 # Pixel Parts
 $(call inherit-product-if-exists, packages/apps/PixelParts/device.mk)
 
+# ViPER4AndroidFX
+PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += system/app/ViPER4AndroidFX/ViPER4AndroidFX.apk
+$(call inherit-product-if-exists, packages/apps/ViPER4AndroidFX/config.mk)
+
 # wireless_charger HAL service
 include device/google/gs-common/wireless_charger/wireless_charger.mk
 
