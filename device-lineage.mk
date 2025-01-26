@@ -20,6 +20,10 @@ PRODUCT_COPY_FILES += \
 # Fingerprint
 TARGET_HAS_UDFPS := true
 
+# IWLAN
+PRODUCT_PACKAGES += \
+    Iwlan
+
 # PowerShare
 include hardware/google/pixel/powershare/device.mk
 
